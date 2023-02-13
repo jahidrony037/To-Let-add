@@ -1,0 +1,38 @@
+    <% layout('layout/boilerplate')%>
+    <%- include('../partials/carousel') %> 
+    <h3 class="text-center display-4 my-4">Mess near bsmrstu campus</h3>
+    <div class="container-fluid">
+      <div class="row">
+        <% for(let proprietor of proprietors ){ %>
+        <div class="col-md-6">
+          <div class="card card-hover mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-5">
+                <img
+                  class="card-img"
+                  src="<%= proprietor.image.path %>"
+                  alt="building-img"
+                />
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Title: <%= proprietor.buildingName %>
+                  </h5>
+                  <ul>
+                    <li>Building Type: <%= proprietor.buildingType %></li>
+                    <li>
+                      Seat Availability: <%= proprietor.seatAvailability %>
+                    </li>
+                    <li>Only For: <%= proprietor.onlyFor %></li>
+                    <li>Contact: <%= proprietor.contact %></li>
+                  </ul>
+                  <a href="/mess/<%=proprietor._id%>" class="btn btn-primary">Show Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
